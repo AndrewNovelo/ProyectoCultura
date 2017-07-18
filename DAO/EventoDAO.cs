@@ -46,6 +46,21 @@ namespace DAO
             return Conex.EjecutarComando(cmd);
         }
 
+        public int ModificarEvento(EventoBO ObjEvento)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE EVENTO SET NOMBRE=@NOMBRE, DESCRIPCION=@DESCRIPCION, COSTO=@COSTO, CUPO=@CUPO, ID_DIRECCION=@IDDIR, ID_ORGANIZADOR=@IDORG, ID_CLASIFICACION=@IDCLASI WHERE CODIGO=@CODIGO");
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@CODIGO", SqlDbType.Int).Value = ObjEvento.ID;
+            cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = ObjEvento.NOMBRE;
+            cmd.Parameters.Add("@DESCRIPCION", SqlDbType.VarChar).Value = ObjEvento.DESCRIPCION;
+            cmd.Parameters.Add("@COSTO", SqlDbType.Money).Value = ObjEvento.COSTO;
+            cmd.Parameters.Add("@CUPO", SqlDbType.Int).Value = ObjEvento.CUPO;
+            cmd.Parameters.Add("@IDDIR", SqlDbType.Int).Value = ObjEvento.ID_DIRECCION;
+            cmd.Parameters.Add("@IDORG", SqlDbType.Int).Value = ObjEvento.ID_ORGANIZADOR;
+            cmd.Parameters.Add("@IDCLASI", SqlDbType.Int).Value = ObjEvento.ID_CLASIFICACION;
+            return Conex.EjecutarComando(cmd);
+        }
+
         public int AgregarHorario(HorarioBO ObjHORARIO)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO HORARIO (FECHA_INICIO, FECHA_FIN, DIA) VALUES (@FEINICIO,@FEFIN,@DIA)");
@@ -58,6 +73,19 @@ namespace DAO
             return Conex.EjecutarComando(cmd);
         }
 
+        public int ModificarHorario(HorarioBO ObjHORARIO)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE HORARIO SET FECHA_INICIO=@FECINI, FECHA_FIN=@FECFIN, DIA=@DIA WHERE CODIGO=@CODIGO");
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@CODIGO", SqlDbType.Int).Value = ObjHORARIO.Codigo;
+            cmd.Parameters.Add("@FECINI", SqlDbType.DateTime).Value = ObjHORARIO.FECHAINICION;
+            cmd.Parameters.Add("@FECFIN", SqlDbType.DateTime).Value = ObjHORARIO.FECHAFIN;
+            cmd.Parameters.Add("@DIA", SqlDbType.VarChar).Value = ObjHORARIO.DIA;
+            return Conex.EjecutarComando(cmd);
+        }
+
+
+        //NO se actualiza
         public int AgregarEventoHorario(EventoXHorarioBO OBEventoHora)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO HORARIOXEVENTO (ID_EVENTO, ID_HORARIO)VALUES(@IDEVENTO,@IDHORARIO)");

@@ -28,7 +28,8 @@ namespace Services
                     oEventoDAO.AgregarEventoHorario(OBEventoHora);
                     break;
                 case "btnModificar":
-                    //oEventoDAO.Modificar(OBEventoBO);
+                    oEventoDAO.ModificarEvento(OBEventoBO);
+                    oEventoDAO.ModificarHorario(OBHorarioBO);
                     break;
                 case "btnEliminar":
                     //oEventoDAO.Eliminar(OBEventoBO);
