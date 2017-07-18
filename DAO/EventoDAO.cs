@@ -48,12 +48,12 @@ namespace DAO
 
         public int ModificarEvento(EventoBO ObjEvento)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE EVENTO SET NOMBRE=@NOMBRE, DESCRIPCION=@DESCRIPCION, COSTO=@COSTO, CUPO=@CUPO, ID_DIRECCION=@IDDIR, ID_ORGANIZADOR=@IDORG, ID_CLASIFICACION=@IDCLASI WHERE CODIGO=@CODIGO");
+            SqlCommand cmd = new SqlCommand("UPDATE EVENTO SET NOMBRE=@NOMBRE, DESCRIPCION=@DESCRIPCION, CUPO=@CUPO, ID_DIRECCION=@IDDIR, ID_ORGANIZADOR=@IDORG, ID_CLASIFICACION=@IDCLASI WHERE CODIGO=@CODIGO");
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@CODIGO", SqlDbType.Int).Value = ObjEvento.ID;
             cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = ObjEvento.NOMBRE;
             cmd.Parameters.Add("@DESCRIPCION", SqlDbType.VarChar).Value = ObjEvento.DESCRIPCION;
-            cmd.Parameters.Add("@COSTO", SqlDbType.Money).Value = ObjEvento.COSTO;
+            
             cmd.Parameters.Add("@CUPO", SqlDbType.Int).Value = ObjEvento.CUPO;
             cmd.Parameters.Add("@IDDIR", SqlDbType.Int).Value = ObjEvento.ID_DIRECCION;
             cmd.Parameters.Add("@IDORG", SqlDbType.Int).Value = ObjEvento.ID_ORGANIZADOR;
@@ -94,6 +94,21 @@ namespace DAO
             cmd.Parameters.Add("@IDHORARIO", SqlDbType.Int).Value = OBEventoHora.CodigoHorario;
             return Conex.EjecutarComando(cmd); 
         }
+
+        /*public int ModificarEventoHorario(EventoBO ObjEvento)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE HORARIOXEVENTO SET ID_EVENTO=@IDEVENTO, ID_HORARIO=@IDHORARIO");
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@CODIGO", SqlDbType.Int).Value = ObjEvento.ID;
+            cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = ObjEvento.NOMBRE;
+            cmd.Parameters.Add("@DESCRIPCION", SqlDbType.VarChar).Value = ObjEvento.DESCRIPCION;
+            cmd.Parameters.Add("@COSTO", SqlDbType.Money).Value = ObjEvento.COSTO;
+            cmd.Parameters.Add("@CUPO", SqlDbType.Int).Value = ObjEvento.CUPO;
+            cmd.Parameters.Add("@IDDIR", SqlDbType.Int).Value = ObjEvento.ID_DIRECCION;
+            cmd.Parameters.Add("@IDORG", SqlDbType.Int).Value = ObjEvento.ID_ORGANIZADOR;
+            cmd.Parameters.Add("@IDCLASI", SqlDbType.Int).Value = ObjEvento.ID_CLASIFICACION;
+            return Conex.EjecutarComando(cmd);
+        }*/
 
         public int UltimoDatoEvento()
         {
