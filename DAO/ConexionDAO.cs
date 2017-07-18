@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace DAO
 {
-    class ConexionDAO
+    public class ConexionDAO
     {
 
         SqlCommand comandosql;

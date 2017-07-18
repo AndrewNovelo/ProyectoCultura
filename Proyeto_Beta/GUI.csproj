@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="frmEvento.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -80,6 +81,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmEvento.aspx.cs">
+      <DependentUpon>frmEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmEvento.aspx.designer.cs">
+      <DependentUpon>frmEvento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmTipo_Usuario.aspx.cs">
       <DependentUpon>frmTipo_Usuario.aspx</DependentUpon>

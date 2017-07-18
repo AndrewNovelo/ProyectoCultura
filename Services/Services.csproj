@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CTRLEvento.cs" />
+    <Compile Include="CTRLHorario.cs" />
     <Compile Include="CTRLPersona.cs" />
     <Compile Include="CTRLTipoUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
