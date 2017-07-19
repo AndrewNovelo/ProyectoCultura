@@ -78,6 +78,7 @@
   <ItemGroup>
     <Content Include="frmTipo_Usuario.aspx" />
     <Content Include="frmUsuario.aspx" />
+    <Content Include="Quienes Somos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="frmUsuario.aspx.designer.cs">
       <DependentUpon>frmUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quienes Somos.aspx.cs">
+      <DependentUpon>Quienes Somos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quienes Somos.aspx.designer.cs">
+      <DependentUpon>Quienes Somos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
