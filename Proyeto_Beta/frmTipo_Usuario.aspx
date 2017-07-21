@@ -47,6 +47,8 @@
         <asp:Button ID="btnModificar" runat="server" OnClick="Accion" Text="Modificar" />
         <asp:Button ID="btnEliminar" runat="server" OnClick="Accion" Text="Eliminar" />
         <asp:Button ID="btnLimpiar" runat="server" OnClick="Accion" Text="Limpiar" />
+
+        <asp:Button ID="Button1" runat="server" OnClick="Accion" href="frmEvento.aspx" Text="Evento" />
     
     </div>
     </form>

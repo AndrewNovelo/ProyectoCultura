@@ -23,9 +23,11 @@ namespace Proyeto_Beta
         {
             //Ver comentario en DAO
             txtIDOrganizador.Text = oEventoDAO.UltimoOrganizador().ToString();
-
+            txtIDClasificacion.Text = IDClasificacion().ToString();
+            txtIDDireccion.Text = oEventoDAO.UltimDireccion().ToString();
             if (!IsPostBack)
             {
+           
                 ListarEventos();
                 //ListarHorario();
                 
@@ -44,8 +46,7 @@ namespace Proyeto_Beta
 
         protected void btnVer_Click(object sender, EventArgs e)
         {
-            txtIDClasificacion.Text = IDClasificacion().ToString();
-            txtIDDireccion.Text = oEventoDAO.UltimDireccion().ToString();
+       
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace Proyeto_Beta
             OBEventoBO.ID_DIRECCION = int.Parse(txtIDDireccion.Text);
             OBEventoBO.ID_ORGANIZADOR = int.Parse(txtIDOrganizador.Text);
             OBEventoBO.ID_CLASIFICACION = int.Parse(txtIDClasificacion.Text);
-            return OBEventoBO;
+            return OBEventoBO;            
         }
 
         public HorarioBO RecolectarHorario()

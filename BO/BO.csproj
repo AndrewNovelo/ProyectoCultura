@@ -45,6 +45,7 @@
     <Compile Include="HorarioBO.cs" />
     <Compile Include="PersonaBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuienesBO.cs" />
     <Compile Include="TipoUsuarioBO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

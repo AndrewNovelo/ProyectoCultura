@@ -44,6 +44,7 @@
     <Compile Include="EventoDAO.cs" />
     <Compile Include="PersonaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuienesDAO.cs" />
     <Compile Include="TipoUsuarioDAO.cs" />
   </ItemGroup>
   <ItemGroup>

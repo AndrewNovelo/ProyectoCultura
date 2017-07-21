@@ -25,6 +25,7 @@
         <asp:Label ID="Label1" runat="server" Text="¿Quienes Somos?"></asp:Label>
         <br />
         <br />
+        <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
