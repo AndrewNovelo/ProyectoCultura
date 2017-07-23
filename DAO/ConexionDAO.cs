@@ -68,17 +68,5 @@ namespace DAO
             return id;
 
         }
-
-        public string EjecutarConTexto(SqlCommand SQLCommando)
-        {
-            comandosql = new SqlCommand();
-            comandosql = SQLCommando;
-            comandosql.Connection = this.establecerConexion();
-            this.abrirConexion();
-            string Mensaje = "Sin información"; Mensaje = comandosql.ExecuteScalar().ToString();
-            this.cerrarConexion();
-            return Mensaje;
-        }
-
     }
 }

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DAO;
 using BO;
+using DAO;
 using Services;
-using System.Data;
-using System.Data.SqlClient;
 
 
 namespace Proyeto_Beta
@@ -23,34 +21,47 @@ namespace Proyeto_Beta
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
-                ListarMensaje();
+                Listar2();
             }
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
-            Button Seleccionar = (Button)sender;
-            oQuienesService.Accion(Seleccionar.ID, RecolectarINFO());
-            ListarMensaje();
-            
+
+            Button Seleccionada = (Button)sender;
+            oQuienesService.Accion(Seleccionada.ID, Recolectar());
+            Listar2();
+
         }
 
-        public QuienesBO RecolectarINFO()
+        public QuienesBO Recolectar()
         {
-            QuienesBO oQuienesBO = new QuienesBO();
-            int ID = 0; int.TryParse(txtID.Text, out ID);
-            oQuienesBO.Id = ID;
+            QuienesBO oQuienes = new QuienesBO();
+
+            int id = 0; int.TryParse(txtID.Text, out id);
+            oQuienesBO.Id = id;
             oQuienesBO.Mensaje = txtQuienes.Text;
-            return oQuienesBO;
+            return oQuienesBO;            
         }
 
-        public void ListarMensaje()
+
+        protected void Seleccionar(object sender, GridViewCommandEventArgs e)
         {
-            txtQuienes.Text = oQuienesService.Listar().ToString();
-            txtQuienes.DataBind();
+            if (e.CommandName == "dgvbtnSeleccionar")
+            {
+                int Indice = Convert.ToInt32(e.CommandArgument);
+
+                txtID.Text = GvQuienes.Rows[Indice].Cells[1].Text;
+                txtQuienes.Text = GvQuienes.Rows[Indice].Cells[2].Text;
+            }            
         }
-        
+
+        public void Listar2()
+        {
+            GvQuienes.DataSource = oQuienesService.Listar().Tables[0];
+            GvQuienes.DataBind();
+        }        
     }
 }

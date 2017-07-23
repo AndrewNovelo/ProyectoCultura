@@ -12,28 +12,33 @@ namespace Services
     public class CTRLQuienes
     {
 
-        QuienesDAO oQuienesDAO;
-        QuienesBO oQuienesBO;
+        QuienesDAO OBQuienesDAO;
 
         public CTRLQuienes()
         {
-            oQuienesDAO = new QuienesDAO();
+            OBQuienesDAO = new QuienesDAO();
         }
 
-        public bool Accion(string Action, QuienesBO oEventoBO)
+        public bool Accion(string Action, QuienesBO oQuienesBO)
         {
             switch (Action)
             {
-                case "btnModificar":
-                    oQuienesDAO.ModificarMensaje(oEventoBO);
+                /*case "btnAgregar":
+                    OBQuienesDAO.Agregar(OBPersonaBO);
+                    break;*/
+                case "btnActualizar":
+                    OBQuienesDAO.Modificar(oQuienesBO);
                     break;
+                /*case "btnEliminar":
+                    OBQuienesDAO.Eliminar(OBPersonaBO);
+                    break;*/
             }
             return true;
         }
 
-        public string Listar()
+        public DataSet Listar()
         {
-            return oQuienesDAO.ModificarMensaje(oQuienesBO);
+            return OBQuienesDAO.Listar();
         }
 
     }
